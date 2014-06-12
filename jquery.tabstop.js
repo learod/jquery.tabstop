@@ -11,11 +11,11 @@ Please, feel free to upgrade the selectors to eradicate this blemish!
  */
 
 (function ( $ ) {
-    $.fn.tabStop = function( direction ) {
+    $.fn.tabStop = function( direction, optInFocusable ) {
         // elements focusable by tabindex attribute
         var activeTabindex = '[tabindex]:not([tabindex^="-"])',
         // elements that are focusable
-        optInFocusable = 'a[href],link[href],button,input:not([type="hidden"]),select,textarea,menuitem,[draggable="true"]',
+        optInFocusable = optInFocusable || 'a[href],link[href],button,input:not([type="hidden"]),select,textarea,menuitem,[draggable="true"]',
         // excluding criteria (or already in selection)
         optOutFocusable = '[tabindex],[disabled]',
         focusable = $(activeTabindex).get().sort(function(a,b) {
